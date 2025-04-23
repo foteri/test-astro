@@ -1,0 +1,11 @@
+---
+const currentUrl = Astro.url.pathname;
+const isIt = currentUrl?.toString()?.indexOf("/it") >= 0;
+const itUrl = currentUrl.replace("/en", "/it") || currentUrl;
+const enUrl = currentUrl.replace("/it", "/en") || currentUrl;
+---
+
+<div class={currentUrl}>
+  <a href={itUrl}>Italian</a>
+  <a href={enUrl}>English</a>
+</div>
