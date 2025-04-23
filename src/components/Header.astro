@@ -1,9 +1,20 @@
 ---
 import Hamburger from "./Hamburger.astro";
+import Language from "./Language.astro";
 import Navigation from "./Navigation.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 ---
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+  }
+</style>
 
 <header>
   <Hamburger />
+  <ThemeIcon />
   <Navigation />
+  <Language />
 </header>

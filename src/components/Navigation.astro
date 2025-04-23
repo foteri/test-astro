@@ -1,5 +1,11 @@
-<div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
+---
+const currentUrl = Astro.url.pathname;
+const isIt = currentUrl?.toString()?.indexOf("/it") >= 0;
+const lang = isIt ? "it/" : "en/";
+---
+
+<div class={`nav-links ${currentUrl}`}>
+  <a href=`/${lang}`>Home</a>
+  <a href=`/${lang}about/`>About</a>
+  <a href=`/${lang}blog/`>Blog</a>
 </div>
