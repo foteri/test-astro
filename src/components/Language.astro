@@ -1,11 +1,28 @@
 ---
 const currentUrl = Astro.url.pathname;
 const isIt = currentUrl?.toString()?.indexOf("/it") >= 0;
-const itUrl = currentUrl.replace("/en", "/it") || currentUrl;
-const enUrl = currentUrl.replace("/it", "/en") || currentUrl;
+let itUrl = currentUrl.replace("/en", "/it") || currentUrl;
+let enUrl = currentUrl.replace("/it", "/en") || currentUrl;
+const isAboutPageIT = currentUrl?.toString()?.indexOf("/su-di-noi") >= 0;
+const isAboutPageEN = currentUrl?.toString()?.indexOf("/about") >= 0;
+const isBlogPageIT = currentUrl?.toString()?.indexOf("/il-mio-blog") >= 0;
+const isBlogPageEN = currentUrl?.toString()?.indexOf("/my-blog") >= 0;
+if (isAboutPageIT || isAboutPageEN) {
+  enUrl = "/en/about";
+  itUrl = "/it/su-di-noi";
+}
+if (isBlogPageEN || isBlogPageIT) {
+  itUrl = "/it/il-mio-blog";
+  enUrl = "/en/my-blog";
+}
 ---
 
 <div class={currentUrl}>
-  <a href={itUrl}>Italian</a>
-  <a href={enUrl}>English</a>
+  <select name="language" id="language" onchange="location = this.value;">
+    <option value={itUrl}> it </option>
+    <option value={enUrl}>
+      en
+      <!-- <a href={enUrl}>English</a> -->
+    </option>
+  </select>
 </div>

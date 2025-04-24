@@ -6,6 +6,7 @@ const { pageTitle } = Astro.props;
 const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
+const { home, about, blog } = Astro.props;
 ---
 
 <html lang="en">
@@ -29,7 +30,7 @@ const textCase = "uppercase";
     </style>
   </head>
   <body>
-    <Header />
+    <Header home={home} about={about} blog={blog} />
     <h1>{pageTitle}</h1>
     <slot />
     <Footer />

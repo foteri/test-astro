@@ -2,10 +2,15 @@
 const currentUrl = Astro.url.pathname;
 const isIt = currentUrl?.toString()?.indexOf("/it") >= 0;
 const lang = isIt ? "it/" : "en/";
+const home = isIt ? "Home it" : "Home";
+const about = isIt ? "About it" : "About";
+const blog = isIt ? "blog it" : "blog";
+const aboutPath = isIt ? "/it/su-di-noi/" : "/en/about/";
+const blogPath = isIt ? "/it/il-mio-blog/" : "/en/my-blog/";
 ---
 
 <div class={`nav-links ${currentUrl}`}>
-  <a href=`/${lang}`>Home</a>
-  <a href=`/${lang}about/`>About</a>
-  <a href=`/${lang}blog/`>Blog</a>
+  <a href=`/${lang}`>{home}</a>
+  <a href={aboutPath}>{about}</a>
+  <a href={blogPath}>{blog}</a>
 </div>
