@@ -5,7 +5,7 @@ const { pageTitle, subtitle } = Astro.props;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>{subtitle}</h2>
+  {subtitle && <h2>{subtitle}</h2>}
   <slot />
   <Greetings client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
 </BaseLayout>

@@ -1,4 +1,5 @@
 ---
+import { Accordion, AccordionItem } from "accessible-astro-components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const pageTitle = "Blog";
 const allPosts: any[] = Object.values(
@@ -7,7 +8,22 @@ const allPosts: any[] = Object.values(
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Accordion>
+    <AccordionItem name="astro" title="What is Astro?" open>
+      <p>
+        Astro is an all-in-one web framework for building fast, content-focused
+        websites.
+      </p>
+    </AccordionItem>
+    <AccordionItem name="astro" title="Why Astro?">
+      <p>
+        Ship less JavaScript to your users while maintaining a modern developer
+        experience.
+      </p>
+    </AccordionItem>
+  </Accordion>
   <p>This is where I will post about my journey learning Astro.</p>
+
   <ul>
     {
       allPosts &&
